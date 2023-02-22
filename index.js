@@ -1,9 +1,16 @@
-const express = require("express");
-const app = express()
-const port = 3000
-app.get( "/", (req, res)=>{
-    res.send("Hello jeff")
-})
-app.listen(port, () => {
-    console.log("My port is: "+ port)
+require('dotenv').config()
+const epxress = require('express')
+const cors = require('cors')
+const app = epxress()
+const { dbConnect } = require('./src/services/mongo')
+
+const PORT = process.env.PORT || 3000
+app.use(cors())
+app.use(epxress.json())
+
+app.use('/v1/api/', require('./src/routes'))
+
+dbConnect()
+app.listen(PORT, () => {
+    console.log('API lista por el puerto ', PORT)
 })
