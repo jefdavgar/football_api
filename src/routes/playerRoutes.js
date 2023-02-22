@@ -6,7 +6,6 @@ router.get('/', getItems)
 
 router.get('/:id', getItem)
 
-//TODO: Donde recibimos data
 router.post('/', createItem)
 
 router.patch('/:id', updateItem)
