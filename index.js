@@ -2,7 +2,8 @@ require('dotenv').config()
 const epxress = require('express')
 const cors = require('cors')
 const app = epxress()
-const { dbConnect } = require('./src/services/mongo')
+
+const { dbConnect } = require('./src/config/mongo')
 
 const PORT = process.env.PORT || 3000
 app.use(cors())
