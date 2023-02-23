@@ -7,16 +7,16 @@ const { cacheInit } = require('../middleware/cache')
 const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controllers/users')
 
 //TODO: localhost/users/ --> LISTA
-router.get('/', checkAuth, checkRoleAuth(['admin']), getItems)
+router.get('/', checkAuth, checkRoleAuth(['user', "admin"]), getItems)
 
 //TODO: localhost/users/:id --> DETALLE
-router.get('/:id', checkOrigin, cacheInit, getItem)
+router.get('/:id', checkAuth, checkRoleAuth(['user', "admin"]), cacheInit, getItem)
 
-router.post('/', checkOrigin, createItem)
+router.post('/', checkAuth, checkRoleAuth(['admin']), cacheInit,  createItem)
 
-router.patch('/:id', updateItem)
+router.patch('/:id', checkAuth, checkRoleAuth(['admin']), updateItem)
 
-router.delete('/:id', deleteItem)
+router.delete('/:id', checkAuth, checkRoleAuth(['admin']), deleteItem)
 
 
 module.exports = router
