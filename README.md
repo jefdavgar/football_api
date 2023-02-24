@@ -36,7 +36,7 @@ Esta API te permite obtener información sobre equipos y jugadores de fútbol de
 # Documentación
 La documentación de la API está disponible en la ruta /docs del servidor. Esta documentación está en formato Swagger, lo que te permitirá explorar y probar las diferentes rutas y parámetros de la API.
 
-Además, en el archivo swagger.yaml en la raíz del proyecto, encontrarás toda la especificación OpenAPI de la API, incluyendo los esquemas de los datos y las rutas disponibles.
+Además, en el archivo swagger.js en el directorio de routes del proyecto, encontrarás toda la especificación OpenAPI de la API, incluyendo los esquemas de los datos y las rutas disponibles.
 
 # Autor
 Este proyecto fue creado por Jeferson Camero.
