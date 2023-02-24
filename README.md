@@ -16,16 +16,17 @@ Para instalar y configurar la API, sigue los siguientes pasos:
 
 Clona el repositorio:
 
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/jefdavgar/football_api.git
+
 Instala las dependencias:
 
-Copy code
 npm install
 Crea un archivo .env en la raíz del proyecto y agrega la siguiente información:
 
-API_KEY=TU_CLAVE_DE_API
+DB_URI=mongodb+srv://admin:1018@cluster0.vkzrnaf.mongodb.net/football_api
 PORT=3000
-Reemplaza TU_CLAVE_DE_API con tu clave de API.
+JWT_SECRET=123456
+
 
 # Inicia el servidor:
 
