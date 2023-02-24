@@ -21,6 +21,7 @@ git clone https://github.com/jefdavgar/football_api.git
 Instala las dependencias:
 
 npm install
+
 Crea un archivo .env en la raíz del proyecto y agrega la siguiente información:
 
 DB_URI=mongodb+srv://admin:1018@cluster0.vkzrnaf.mongodb.net/football_api
