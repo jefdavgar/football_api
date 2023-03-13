@@ -82,7 +82,45 @@ router.get('/:id', checkAuth, checkRoleAuth(['user', "admin"]), getItem)
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '../models/playerModel'
+ *             type: object
+ *             properties:
+ *               player_data:
+ *                 type: object
+ *                 properties:
+ *                   Full_Name:
+ *                     type: string
+ *                   League:
+ *                     type: string
+ *                   Nationality:
+ *                     type: string
+ *                   Team:
+ *                     type: string
+ *               player_overall:
+ *                 type: object
+ *                 properties:
+ *                   Attacking:
+ *                     type: number
+ *                   Defending:
+ *                     type: number
+ *                   Dribbling:
+ *                     type: number
+ *                   Goalkeeping:
+ *                     type: number
+ *                   Passing:
+ *                     type: number
+ *                   Physicality:
+ *                     type: number
+ *               player_stats:
+ *                 type: object
+ *                 properties:
+ *                   Age:
+ *                     type: string
+ *                   Position:
+ *                     type: string
+ *                   Stronger_Foot:
+ *                     type: string
+ *                   Weight:
+ *                     type: string
  *     responses:
  *       201:
  *         description: Jugador creado
@@ -94,6 +132,7 @@ router.get('/:id', checkAuth, checkRoleAuth(['user', "admin"]), getItem)
  *         description: No tiene permisos para acceder
  */
 router.post('/', checkAuth, checkRoleAuth(['admin']), cacheInit, createItem)
+
 /**
  * @swagger
  * v1/api/playerRoutes/{id}:
@@ -117,14 +156,52 @@ router.post('/', checkAuth, checkRoleAuth(['admin']), cacheInit, createItem)
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '../models/playerModel'
+ *             type: object
+ *             properties:
+ *               player_data:
+ *                 type: object
+ *                 properties:
+ *                   Full_Name:
+ *                     type: string
+ *                   League:
+ *                     type: string
+ *                   Nationality:
+ *                     type: string
+ *                   Team:
+ *                     type: string
+ *               player_overall:
+ *                 type: object
+ *                 properties:
+ *                   Attacking:
+ *                     type: number
+ *                   Defending:
+ *                     type: number
+ *                   Dribbling:
+ *                     type: number
+ *                   Goalkeeping:
+ *                     type: number
+ *                   Passing:
+ *                     type: number
+ *                   Physicality:
+ *                     type: number
+ *               player_stats:
+ *                 type: object
+ *                 properties:
+ *                   Age:
+ *                     type: string
+ *                   Position:
+ *                     type: string
+ *                   Stronger_Foot:
+ *                     type: string
+ *                   Weight:
+ *                     type: string
  *     responses:
  *       '200':
  *         description: Player updated successfully
  *         content:
  *           application/json:
  *             schema:
- *              $ref: '../models/playerModel'
+ *               $ref: '../models/playerModel'
  *       '401':
  *         $ref: '#/components/responses/Unauthorized'
  *       '403':
@@ -134,7 +211,6 @@ router.post('/', checkAuth, checkRoleAuth(['admin']), cacheInit, createItem)
  *       '500':
  *         $ref: '#/components/responses/InternalServerError'
  */
-
 router.patch('/:id', checkAuth, checkRoleAuth(['admin']), updateItem)
 
 /**
@@ -152,8 +228,48 @@ router.patch('/:id', checkAuth, checkRoleAuth(['admin']), updateItem)
  *         name: id
  *         description: ID of the player to delete
  *         required: true
- *         schema:
- *           type: string
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               player_data:
+ *                 type: object
+ *                 properties:
+ *                   Full_Name:
+ *                     type: string
+ *                   League:
+ *                     type: string
+ *                   Nationality:
+ *                     type: string
+ *                   Team:
+ *                     type: string
+ *               player_overall:
+ *                 type: object
+ *                 properties:
+ *                   Attacking:
+ *                     type: number
+ *                   Defending:
+ *                     type: number
+ *                   Dribbling:
+ *                     type: number
+ *                   Goalkeeping:
+ *                     type: number
+ *                   Passing:
+ *                     type: number
+ *                   Physicality:
+ *                     type: number
+ *               player_stats:
+ *                 type: object
+ *                 properties:
+ *                   Age:
+ *                     type: string
+ *                   Position:
+ *                     type: string
+ *                   Stronger_Foot:
+ *                     type: string
+ *                   Weight:
+ *                     type: string
  *     responses:
  *       '204':
  *         description: Player deleted successfully
@@ -167,7 +283,7 @@ router.patch('/:id', checkAuth, checkRoleAuth(['admin']), updateItem)
  *         $ref: '#/components/responses/InternalServerError'
  */
 
-router.delete('/:id', checkAuth, checkRoleAuth(['admin']), checkOrigin, deleteItem)
+router.delete('/:id', checkAuth, checkRoleAuth(['admin']), deleteItem)
 
 
 module.exports = router
